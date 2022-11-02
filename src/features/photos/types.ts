@@ -8,7 +8,7 @@ export interface GetPhotosStartAction {
 
 export interface GetPhotosSuccessAction {
   type: typeof GET_PHOTOS_SUCCESS
-  payload?: Rover[]
+  payload: Rover[]
 }
 
 export interface GetPhotosErrorAction {

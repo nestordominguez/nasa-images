@@ -1,14 +1,10 @@
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
-// import MaterialReactTable from 'material-react-table'
 import { Paper } from '@mui/material'
-// import type { MRT_ColumnDef } from 'material-react-table'
 import { selectors } from '../../features/photos'
-
 
 const Photos: FC = () => {
   const photos = useSelector(selectors.getphotos)
-  console.log({photos})
 
   return(
     <>
