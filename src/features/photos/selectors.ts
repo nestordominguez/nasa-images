@@ -1,3 +1,3 @@
 import { SystemState } from './types'
 
-export const getphotos = (state: SystemState) => state.images.photos
+export const getApiParams = (state: SystemState) => state.images.api

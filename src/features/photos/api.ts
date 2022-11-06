@@ -1,8 +1,6 @@
 import axios from 'axios'
-import { getUrl } from '../../utils';
-import { Rover } from './types';
+import { Rover } from './types'
 
-export default () => {
-  const url = getUrl("curiosity")
+export const Api = (url: string) => {
   return axios.get<Rover[]>(url)
 }

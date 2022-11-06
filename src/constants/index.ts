@@ -1,3 +1,5 @@
+import { CameraType } from "../features/photos/types"
+
 export const NASA_API_KEY = "h6OSLxaN0rD8iHKMlbuJvdtRv4HkkxTOFgHkIpPJ"
 
 export const SPIRIT = "spirit"
@@ -16,7 +18,7 @@ export const NAVCAM = "NAVCAM"
 export const PANCAM = "PANCAM"
 export const MINITES = "MINITES"
 
-export const CAMERA = {
+export const CAMERAS: CameraType[] = [
   FHAZ,
   RHAZ,
   MAST,
@@ -26,4 +28,18 @@ export const CAMERA = {
   NAVCAM,
   PANCAM,
   MINITES,
+]
+
+export const CAMERAS_CHECKBOX = {
+  FHAZ: false,
+  RHAZ: false,
+  MAST: false,
+  CHEMCAM: false,
+  MAHLI: false,
+  MARDI: false,
+  NAVCAM: false,
+  PANCAM: false,
+  MINITES: false,
 }
+
+export const ROVERS = [SPIRIT, OPPORTUNITY, CURIOSITY]
