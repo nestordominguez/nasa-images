@@ -9,8 +9,7 @@ import { Api } from './api'
 function* fetchPhotos() {
    try {
       const api: ApiParams = yield select(getApiParams)
-      const {rover, page, cameras} = api
-      const url = getUrl(rover, page, cameras)
+      const url = getUrl(api)
       yield put(setIsLoaded(false))
       const response: RoverRequest = yield call(Api, url)
       const photos: Rover[] = response.data.photos

@@ -5,9 +5,7 @@ import {
   SET_IS_LOADED,
   SET_HAS_MORE,
   RESET_IMAGES,
-  SET_API_PAGE,
-  SET_API_ROVER,
-  SET_API_CAMERAS,
+  SET_API_PARAMS,
 } from './actionTypes'
 import {
   CURIOSITY,
@@ -53,19 +51,9 @@ export interface ResetImages {
   type: typeof RESET_IMAGES
 }
 
-export interface SetApiPage {
-  type: typeof SET_API_PAGE
-  payload: number
-}
-
-export interface SetApiRover {
-  type: typeof SET_API_ROVER
-  payload: RoverType
-}
-
-export interface SetApiCameras {
-  type: typeof SET_API_CAMERAS
-  payload: CameraType[]
+export interface SetApiParams {
+  type: typeof SET_API_PARAMS
+  payload: ApiParams
 }
 
 export type PhotosActionTypes = GetPhotosStartAction
@@ -74,9 +62,7 @@ export type PhotosActionTypes = GetPhotosStartAction
   | SetIsLoaded
   | SetHasMore
   | ResetImages
-  | SetApiPage
-  | SetApiRover
-  | SetApiCameras
+  | SetApiParams
 
 export type RoverType = typeof CURIOSITY | typeof OPPORTUNITY | typeof SPIRIT
 
@@ -109,16 +95,18 @@ export interface RoverRequest {
 }
 
 export interface ApiParams {
-  page: number
+  page: number | undefined
   rover: RoverType
   cameras: CameraType[]
+  date: string | undefined
+  sol: number | undefined
 }
 
 export interface PhotosState {
   photos: Rover[]
   isLoaded: boolean
   hasMore: boolean
-  api: ApiParams
+  apiParams: ApiParams
 }
 
 export interface SystemState {

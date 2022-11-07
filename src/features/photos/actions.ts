@@ -5,11 +5,9 @@ import {
   SET_HAS_MORE,
   SET_IS_LOADED,
   RESET_IMAGES,
-  SET_API_PAGE,
-  SET_API_ROVER,
-  SET_API_CAMERAS
+  SET_API_PARAMS,
 } from './actionTypes'
-import { Rover, RoverType, CameraType } from './types'
+import { Rover, ApiParams } from './types'
 
 export const getPhotosStart = () => {
   return {
@@ -50,23 +48,9 @@ export const resetImages = () => {
   }
 }
 
-export const setApiPage = (payload: number) => {
+export const setApiParams = (payload: ApiParams) => {
   return {
-    type: SET_API_PAGE,
-    payload
-  }
-}
-
-export const setApiRover = (payload: RoverType) => {
-  return {
-    type: SET_API_ROVER,
-    payload
-  }
-}
-
-export const setApiCameras = (payload: CameraType[]) => {
-  return {
-    type: SET_API_CAMERAS,
+    type: SET_API_PARAMS,
     payload
   }
 }

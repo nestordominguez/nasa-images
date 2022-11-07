@@ -1,1 +1,1 @@
-export { default } from './Camera.container'
+export { default } from './Camera'

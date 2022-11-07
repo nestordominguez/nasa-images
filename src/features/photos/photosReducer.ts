@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/default-param-last */
-import { SPIRIT } from '../../constants'
+import { CURIOSITY } from '../../constants'
 import {
   GET_PHOTOS_START,
   GET_PHOTOS_SUCCESS,
@@ -7,20 +7,21 @@ import {
   SET_IS_LOADED,
   SET_HAS_MORE,
   RESET_IMAGES,
-  SET_API_PAGE,
-  SET_API_ROVER,
-  SET_API_CAMERAS,
+  SET_API_PARAMS,
 } from './actionTypes'
 import { PhotosActionTypes, PhotosState, Rover } from './types'
+import { getCurrentDate } from '../../utils'
 
 const initialState: PhotosState = {
   photos: [],
   isLoaded: false,
   hasMore: true,
-  api: {
+  apiParams: {
     page: 1,
-    rover: SPIRIT,
+    rover: CURIOSITY,
     cameras: [],
+    date: getCurrentDate(),
+    sol: undefined,
   }
 }
 
@@ -43,16 +44,10 @@ export default (state = initialState, action: PhotosActionTypes) => {
       const hasMore = action.payload
       return { ...state, hasMore }
     case RESET_IMAGES:
-      return { ...state, photos: [], hasMore: true, api: {...state.api, page: 1} }
-    case SET_API_PAGE:
-      const page = action.payload
-      return { ...state, api: {...state.api, page} }
-    case SET_API_ROVER:
-      const rover = action.payload
-      return { ...state, api: {...state.api, rover} }
-    case SET_API_CAMERAS:
-      const cameras = action.payload
-      return { ...state, api: {...state.api, cameras} }
+      return { ...state, photos: [], hasMore: true, apiParams: {...state.apiParams, page: 1} }
+    case SET_API_PARAMS:
+      const apiParams = action.payload
+      return { ...state, apiParams }
     default:
       return state
   }

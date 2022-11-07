@@ -1,23 +1,20 @@
 import { connect, ConnectedProps } from 'react-redux'
-import Photos from './Photos'
-import { getPhotosStart, setApiParams } from '../../features/photos/actions'
+import Form from './Form'
+import { getPhotosStart, resetImages, setApiParams } from '../../features/photos/actions'
 import { ApiParams, SystemState } from '../../features/photos/types'
 
-
 const mapState = (state: SystemState) => ({
-  images: state.images.photos,
-  loaded: state.images.isLoaded,
-  hasMore: state.images.hasMore,
   apiParams: state.images.apiParams,
 })
 
 const mapDispatch = {
-  fetchPhotos: () => (getPhotosStart()),
-  setParams: (apiParams: ApiParams) => setApiParams(apiParams),
+  fetchPhotos: () => getPhotosStart(),
+  resetImages: () => resetImages(),
+  setApiParams: (apiParams: ApiParams) => setApiParams(apiParams),
 }
 
 const connector = connect(mapState, mapDispatch)
 
 export type PropsFromRedux = ConnectedProps<typeof connector>
 
-export default connector(Photos)
+export default connector(Form)

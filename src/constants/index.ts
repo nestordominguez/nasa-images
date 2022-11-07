@@ -43,3 +43,4 @@ export const CAMERAS_CHECKBOX = {
 }
 
 export const ROVERS = [SPIRIT, OPPORTUNITY, CURIOSITY]
+export const FORMAT = "YYYY-MM-DD"
